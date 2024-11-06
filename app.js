@@ -1,4 +1,4 @@
-// Pobieranie aktualnych kursów walut
+// Pobieranie i wyświetlanie kursów walut
 async function fetchRates() {
     try {
         const response = await fetch('https://your-heroku-app.herokuapp.com/api/rates');
@@ -10,9 +10,9 @@ async function fetchRates() {
     }
 }
 
-// Wyświetlanie kursów
+// Wyświetlanie kursów walut
 function displayRates(data) {
-    const ratesContainer = document.getElementById('currentRates');
+    const ratesContainer = document.getElementById('rates');
     ratesContainer.innerHTML = '<h3>Aktualne kursy względem USD:</h3>';
     for (const [currency, rate] of Object.entries(data.conversion_rates)) {
         ratesContainer.innerHTML += `<p>${currency}: ${rate}</p>`;
@@ -37,10 +37,10 @@ async function convertCurrency() {
     const response = await fetch('https://your-heroku-app.herokuapp.com/api/rates');
     const data = await response.json();
     const result = (amount * data.conversion_rates[toCurrency] / data.conversion_rates[fromCurrency]).toFixed(2);
-    document.getElementById('result').textContent = `Wynik: ${result} ${toCurrency}`;
+    document.getElementById('conversionResult').textContent = `Wynik: ${result} ${toCurrency}`;
 }
 
-// Pobieranie i wyświetlanie danych historycznych
+// Wykres historyczny
 async function fetchHistory() {
     const response = await fetch('https://your-heroku-app.herokuapp.com/api/history/USD');
     const data = await response.json();
@@ -68,5 +68,6 @@ async function fetchHistory() {
     });
 }
 
+// Inicjalizacja strony
 fetchRates();
 fetchHistory();
