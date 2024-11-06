@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.EXCHANGERATE_API_KEY;
 
-app.use(express.static(path.join(__dirname, '../client'))); // Umożliwia serwowanie plików front-endowych
+app.use(express.static(path.join(__dirname, '../'))); // Umożliwia serwowanie plików front-endowych
 
 // Endpoint do pobrania kursów walut w czasie rzeczywistym
 app.get('/api/rates', async (req, res) => {
