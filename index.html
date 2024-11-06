@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kursy Walut</title>
+    <title>Kursy Walut - Przelicznik</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Kursy Walut</h1>
+    <div class="container">
+        <header>
+            <h1>Kursy Walut</h1>
+        </header>
 
-    <!-- Sekcja aktualnych kursów -->
-    <div id="currentRates"></div>
+        <section class="current-rates">
+            <h2>Aktualne kursy</h2>
+            <div id="rates"></div>
+        </section>
 
-    <!-- Kalkulator walutowy -->
-    <h2>Kalkulator walutowy</h2>
-    <input type="number" id="amount" placeholder="Kwota">
-    <select id="fromCurrency"></select>
-    <select id="toCurrency"></select>
-    <button onclick="convertCurrency()">Przelicz</button>
-    <p id="result"></p>
+        <section class="currency-converter">
+            <h2>Kalkulator Walutowy</h2>
+            <label for="amount">Kwota:</label>
+            <input type="number" id="amount" placeholder="Kwota" />
+            <label for="fromCurrency">Z waluty:</label>
+            <select id="fromCurrency"></select>
+            <label for="toCurrency">Na walutę:</label>
+            <select id="toCurrency"></select>
+            <button onclick="convertCurrency()">Przelicz</button>
+            <p id="conversionResult"></p>
+        </section>
 
-    <!-- Wykres historyczny -->
-    <h2>Historia kursu</h2>
-    <canvas id="currencyChart" width="400" height="200"></canvas>
+        <section class="chart">
+            <h2>Wykres Historyczny</h2>
+            <canvas id="currencyChart" width="400" height="200"></canvas>
+        </section>
+    </div>
+
+    <footer>
+        <p>Projekt stworzony przez Ciebie, używając API kursów walut.</p>
+    </footer>
 
     <script src="app.js"></script>
 </body>
