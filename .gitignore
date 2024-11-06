@@ -1,0 +1,12 @@
+# Ignorowanie plików .env
+.env
+
+# Ignorowanie folderów i plików zależnych od środowiska
+node_modules/
+
+# Ignorowanie plików logów
+*.log
+
+# Ignorowanie plików systemowych
+.DS_Store
+Thumbs.db
